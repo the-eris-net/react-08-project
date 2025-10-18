@@ -10,9 +10,9 @@ export default function MovieCard({movie}){
         navigate('/details')
     }
 
-    return <div onClick={hanleOnClick}>
-        <img src={`${BASE_URL}${movie.backdrop_path}`}/>
+    return <div className={styles.card} onClick={hanleOnClick} >
+        <img className={styles.img} src={`${BASE_URL}${movie.poster_path}`} />
         <div className={styles.title}>{movie.title}</div>
-        <div className={styles.voteCount}>{movie.vote_average}</div>
+        <div className={styles.voteCount}>평점 : {movie.vote_average}</div>
     </div>
 }

@@ -10,11 +10,11 @@ function Genre({value}){
 
 export default function MovieDetail() {
   const [data, setData] = useState(movieDetailData);
-  console.log(data);
+
   return (
     <div className={styles.movie}>
       <div className={styles.poster}>
-        <img src={`${BASE_URL}${data.backdrop_path}`}></img>
+        <img src={`${BASE_URL}${data.poster_path}`}></img>
       </div>
       <div className={styles.title}>{data.title}</div>
       <div className={styles.vote}>{data.vote_average}</div>
