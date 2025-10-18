@@ -1,4 +1,5 @@
 .card {
+    /* display inline-block이 아니더라도 flex-wrap을 적용하면 줄바꿈이 됨*/
     display: inline-block;
 }
 
