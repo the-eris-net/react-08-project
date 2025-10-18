@@ -1,0 +1,67 @@
+.movie {
+    display: grid;
+    /* 
+      왼쪽(포스터):오른쪽(정보) 비율
+      3개를 적어서 열이 3개가 된다 
+    */
+    grid-template-columns: 2fr 2fr 1fr;
+    /* 
+      행 자동 높이, 
+      auto는 내용 크기 만큼, 1fr는 나머지, 
+      fraction뜻은 비율
+      3개를 적어서 행이 3개가 된다
+    */
+    grid-template-rows: auto auto 1fr;
+    /*grid 내부 간격*/
+    gap: 10px;
+    width: 600px;
+    height: 400px;
+    background-color: #0f3553;
+    padding: 10px;
+    color: white;
+}
+
+/* 왼쪽 포스터 */
+.poster {
+    /* 라인이 1부터 4까지이니 칸이 3칸, 총 3칸이므로 전체를 차지*/
+    grid-row: 1 / 4;
+    background-color: #135a7c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*사진이 크기에 영향을 못미치게 자른다*/
+    overflow: hidden;
+}
+
+/* 오른쪽 상단 - 제목, 평점 */
+.title {
+    background-color: #135a7c;
+    grid-column: 2 / 3;
+    grid-row: 1;
+    padding: 10px;
+}
+
+.vote {
+    background-color: #135a7c;
+    grid-column: 3 / 4;
+    grid-row: 1;
+    /* 오른쪽 정렬 */
+    padding: 10px;
+}
+
+/* 오른쪽 중간 - 장르 */
+.genres {
+    background-color: #135a7c;
+    grid-column: 2 / 4;
+    grid-row: 2;
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+}
+/* 오른쪽 하단 - 줄거리 */
+.summary {
+    background-color: #135a7c;
+    grid-column: 2 / 4;
+    grid-row: 3;
+    padding: 10px;
+}

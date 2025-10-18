@@ -4,7 +4,6 @@ import MovieCard from './components/MovieCard';
 
 function App() {
   const [movies, setMovies] = useState(movieListData.results);
-  console.log(movieListData.results);
 
   return (
     <>
