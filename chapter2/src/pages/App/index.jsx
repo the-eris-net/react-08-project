@@ -36,7 +36,7 @@ function App() {
         //setTimeout은 debugging 용도
         setTimeout(() => {
           setIsLoading(false);
-        }, 10000);
+        }, 2000);
       });
   }, []);
 
