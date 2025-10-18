@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import movieDetailData from '@/mocks/movieDetailData';
-import styles from '@/components/MovieDetail/MovieDetail.module.css';
+import styles from '@/pages/MovieDetail/MovieDetail.module.css';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 

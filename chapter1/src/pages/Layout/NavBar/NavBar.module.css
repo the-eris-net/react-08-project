@@ -1,0 +1,58 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    background-color: #111;
+    color: white;
+}
+
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.oz {
+    color: white;
+}
+
+.dot {
+    color: #9b4dff;
+}
+
+.search {
+    width: 400px;
+    padding: 10px 14px;
+    border-radius: 20px;
+    border: none;
+    /* 
+    포커스 했을 때 outline
+    border처럼 1px solid #999 이런식으로 설정 가능
+  */
+    outline: none;
+    background-color: #2b2b2b;
+    color: white;
+    font-size: 14px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+
+.buttons button {
+    background-color: #6c2cff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.5s;
+}
+
+.buttons button:hover {
+    background-color: #8b5fff;
+}
