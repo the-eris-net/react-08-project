@@ -1,6 +1,8 @@
 .card {
     /* display inline-block이 아니더라도 flex-wrap을 적용하면 줄바꿈이 됨*/
     display: inline-block;
+    /* 이거 없어도 동작은 하는데 나중에 글자 삐져나왔을때 막으려고 추가함*/
+    width: 200px;
 }
 
 .img {
@@ -15,17 +17,14 @@
         scale-down	원본 or contain 중 작은 쪽 선택
     */
     object-fit: contain;
-    /* 이미지 비율 유지, 남는 여백 있음 */
+    /* 여백 색상 */
     background-color: #000;
-    /* (선택) 여백 색상 */
 }
 
 .title {
     font-weight: bold;
-    /* padding: 5px 5px 0px 5px; */
 }
 
 .voteCount {
     color: grey;
-    /* padding: 5px; */
 }

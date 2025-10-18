@@ -4,3 +4,6 @@
     * npm i react-router-dom
     * 도전과제
         * npm install swiper
+* chapter2
+    * https://developer.themoviedb.org/reference/movie-popular-list
+        * 첫번째 api
