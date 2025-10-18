@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './NavBar.module.css';
+import Button from '@/components/Button';
 
 export default function NavBar() {
   const navigate = useNavigate();
@@ -19,8 +20,8 @@ export default function NavBar() {
       </div>
 
       <div className={styles.buttons}>
-        <button className="login">로그인</button>
-        <button className="signup">회원가입</button>
+        <Button>로그인</Button>
+        <Button>회원가입</Button>
       </div>
     </nav>
   );
