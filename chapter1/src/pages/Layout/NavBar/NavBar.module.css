@@ -11,6 +11,9 @@
 .logo {
     font-size: 22px;
     font-weight: bold;
+    cursor: pointer;
+    /* 드래그 방지 */
+    user-select: none;
 }
 
 .oz {
@@ -22,7 +25,7 @@
 }
 
 .search {
-    width: 400px;
+    width: 300px;
     padding: 10px 14px;
     border-radius: 20px;
     border: none;

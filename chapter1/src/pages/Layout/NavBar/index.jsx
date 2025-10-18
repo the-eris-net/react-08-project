@@ -1,9 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './NavBar.module.css';
 
 export default function NavBar() {
+  const navigate = useNavigate();
+
+  const handleClickSearch = () => {
+    navigate('/');
+  }
+
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}>
+      <div className={styles.logo} onClick={handleClickSearch}>
         <span className={styles.oz}>OZ</span>무비<span className={styles.dot}>.</span>
       </div>
 
