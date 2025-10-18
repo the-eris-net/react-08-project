@@ -6,16 +6,17 @@ import Button from '@/components/Button';
 import SwiperMovies from './SwiperMovies';
 import TBDB from '@/config/tmdb';
 
-function Movies({ movies, isSwiper }) {
+function Movies({ movies, isSwiper, isLoading }) {
   return isSwiper ? (
     <SwiperMovies movies={movies} />
   ) : (
-    <SpreadMovies movies={movies} />
+    <SpreadMovies movies={movies} isLoading={isLoading} />
   );
 }
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [isSwiper, setIsSwiper] = useState(false);
   const headers = {
     Authorization: `Bearer ${TBDB.API_KEY}`,
@@ -23,13 +24,19 @@ function App() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`${TBDB.BASE_URL}/${TBDB.POPULAR_PATH}?&language=ko-KR&page=4`, {
       headers,
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setMovies(data.results.filter((movie) => movie.adult === false));
+      })
+      .finally(() => {
+        //setTimeout은 debugging 용도
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 10000);
       });
   }, []);
 
@@ -39,7 +46,7 @@ function App() {
         {isSwiper ? '기본 목록 보기' : 'Swiper로 보기'}
       </Button>
       <div className={styles.movies}>
-        <Movies movies={movies} isSwiper={isSwiper} />
+        <Movies movies={movies} isSwiper={isSwiper} isLoading={isLoading} />
       </div>
     </div>
   );
