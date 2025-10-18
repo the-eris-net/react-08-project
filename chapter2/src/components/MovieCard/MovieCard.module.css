@@ -1,0 +1,31 @@
+.card {
+    /* display inline-block이 아니더라도 flex-wrap을 적용하면 줄바꿈이 됨*/
+    display: inline-block;
+}
+
+.img {
+    width: 200px;
+    height: 300px;
+    /*
+        값          설명
+        cover       영역 꽉 채움 (잘림 발생 가능) -> 작은쪽 기준으로 맞추고 큰쪽은 잘림
+        contain     비율 유지, 잘림 없음 (여백 생김)
+        fill        강제 맞춤 (왜곡 발생)
+        none        원본 크기 그대로
+        scale-down	원본 or contain 중 작은 쪽 선택
+    */
+    object-fit: contain;
+    /* 이미지 비율 유지, 남는 여백 있음 */
+    background-color: #000;
+    /* (선택) 여백 색상 */
+}
+
+.title {
+    font-weight: bold;
+    /* padding: 5px 5px 0px 5px; */
+}
+
+.voteCount {
+    color: grey;
+    /* padding: 5px; */
+}
