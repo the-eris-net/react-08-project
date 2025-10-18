@@ -59,7 +59,7 @@
     display: flex;
 }
 /* 오른쪽 하단 - 줄거리 */
-.summary {
+.overview {
     background-color: #135a7c;
     grid-column: 2 / 4;
     grid-row: 3;

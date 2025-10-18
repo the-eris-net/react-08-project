@@ -19,7 +19,7 @@ export default function MovieDetail() {
       <div className={styles.title}>{data.title}</div>
       <div className={styles.vote}>{data.vote_average}</div>
       <div className={styles.genres}>{data.genres.map(genre=><Genre key={genre.id} value={genre.name}/>)}</div>
-      <div className={styles.summary}>{data.overview}</div>
+      <div className={styles.overview}>{data.overview}</div>
     </div>
   );
 }
