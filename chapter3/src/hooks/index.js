@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+/* chapter2 추가 */
 export function useFetch(url, headers, timeout = 0) {
   const [data, setData] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,4 +23,17 @@ export function useFetch(url, headers, timeout = 0) {
       });
   }, [url]);
   return [data, isLoading];
+}
+
+/* chapter3추가 */
+export function useDebounce(delay = 300) {
+  const [value, setValue] = useState('');
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => setDebouncedValue(value), delay);
+    return () => clearTimeout(handler);
+  }, [value, delay]);
+
+  return [value, debouncedValue, setValue];
 }

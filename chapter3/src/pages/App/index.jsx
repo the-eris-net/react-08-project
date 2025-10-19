@@ -6,6 +6,7 @@ import Button from '@/components/Button';
 import SwiperMovies from './SwiperMovies';
 import TMDB from '@/config/tmdb';
 import { useFetch } from '@/hooks';
+import { useSearchParams } from 'react-router-dom';
 
 function Movies({ movies, isSwiper, isLoading }) {
   return isSwiper ? (
@@ -14,44 +15,36 @@ function Movies({ movies, isSwiper, isLoading }) {
     <SpreadMovies movies={movies} isLoading={isLoading} />
   );
 }
+/* 요청시 쿼리파메터에 include_adult=false로 성인 영화 제거 가능 */
+function getSearchUrl(query) {
+  if (query === '') {
+    return `${TMDB.BASE_URL}/${TMDB.POPULAR_PATH}?&language=ko-KR&page=1`;
+  }
+  return query
+    ? `${TMDB.BASE_URL}/${TMDB.SEARCH_PATH}` +
+        `?query=${encodeURIComponent(query)}` +
+        `&language=ko-KR&page=1`
+    : `${TMDB.BASE_URL}/${TMDB.POPULAR_PATH}?&language=ko-KR&page=1`;
+}
 
-/**
- * 주석 친버전으로 먼저 해야함
- * 1번 -> 2번 순서로 한다음에 3번 순서로 수정
- */
 function App() {
-  // 1번
-  // const [data, setData] = useState(null);
-  // const [isLoading, setIsLoading] = useState(false);
   const [isSwiper, setIsSwiper] = useState(false);
+  const [keyword] = useSearchParams();
+  /* 맨 처음 로딩시 keyword 안붙을 수도 있기 대문에 추가함 */
+  const query = keyword.get('keyword')?.trim();
+
   const headers = {
     Authorization: `Bearer ${TMDB.API_KEY}`,
     'Content-Type': 'application/json;charset=utf-8',
   };
-  /* 3번 start */
-  const [data, isLoading] = useFetch(
-    `${TMDB.BASE_URL}/${TMDB.POPULAR_PATH}?&language=ko-KR&page=1`,
-    headers
-  );
-  /* 3번 end */
 
-  // 2번
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   fetch(`${TMDB.BASE_URL}/${TMDB.POPULAR_PATH}?&language=ko-KR&page=4`, {
-  //     headers,
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data))
-  //     .finally(() => {
-  //       //setTimeout은 debugging 용도
-  //       setTimeout(() => {
-  //         setIsLoading(false);
-  //       }, 2000);
-  //     });
-  // }, []);
+  const url = getSearchUrl(query);
 
-  const movies = data ? data.results.filter((movie) => movie.adult === false) : [];
+  const [data, isLoading] = useFetch(url, headers);
+
+  const movies = data
+    ? data.results.filter((movie) => movie.adult === false)
+    : [];
 
   return (
     <div>

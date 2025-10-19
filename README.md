@@ -7,3 +7,5 @@
 * chapter2
     * https://developer.themoviedb.org/reference/movie-popular-list
         * 첫번째 api
+* chapter3
+    * https://developer.themoviedb.org/reference/search-movie
