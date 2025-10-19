@@ -1,0 +1,10 @@
+/*이거 추가해야 vscode에서 @ import 됨*/
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@src/*": ["src/*"]
+    }
+  }
+}

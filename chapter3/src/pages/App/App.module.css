@@ -1,0 +1,11 @@
+.movies {
+  display: flex;
+  /* 부모님 모서리를 넘어가면 아래로 내려갈지 말지에 대한 처리 */
+  flex-wrap: wrap;
+  /* element끼리의 간격, flex랑 gird는 적용가능해서 inline-block으로 처리헀다면 이 속성은 안먹힘*/
+  gap: 10px;
+}
+
+.button {
+  margin-bottom: 10px;
+}
