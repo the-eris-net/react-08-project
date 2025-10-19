@@ -7,7 +7,6 @@
     color: white;
 }
 
-
 .logo {
     font-size: 22px;
     font-weight: bold;
@@ -42,4 +41,31 @@
 .buttons {
     display: flex;
     gap: 10px;
+}
+
+/* order는 flex나 grid에서 먹힘 */
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .searchBox {
+        order: 3;
+        display: flex;
+        width: 100%;
+    }
+
+    .buttons {
+        order: 2;
+    }
 }

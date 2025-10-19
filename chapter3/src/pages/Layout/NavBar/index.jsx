@@ -27,7 +27,7 @@ export default function NavBar() {
         <span className={styles.dot}>.</span>
       </div>
 
-      <div>
+      <div className={styles.searchBox}>
         <input
           className={styles.search}
           type="text"
