@@ -3,6 +3,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px 40px;
+    /* searchBox의 width:100% 효과를 먹이기 위해서는 wrap이 필요*/
+    flex-wrap: wrap; 
     background-color: #111;
     color: white;
 }
@@ -44,9 +46,9 @@
 }
 
 /* order는 flex나 grid에서 먹힘 */
-@media (max-width: 700px) {
+@media (min-width: 401px) and (max-width: 800px) {
     .navbar {
-        flex-direction: column;
+        /* flex-direction: column; */
         align-items: flex-start;
         gap: 10px;
     }
@@ -62,6 +64,7 @@
     .searchBox {
         order: 3;
         display: flex;
+        /* 이 속성 때문에 가로 크기가 전부 피교해서 아래로 내려야함 */
         width: 100%;
     }
 
