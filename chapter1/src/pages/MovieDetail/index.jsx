@@ -13,8 +13,8 @@ export default function MovieDetail() {
 
   return (
     <div className={styles.movie}>
-      <div className={styles.poster}>
-        <img src={`${BASE_URL}${data.poster_path}`}></img>
+      <div className={styles.poster} >
+        <img className={styles.img} src={`${BASE_URL}${data.poster_path}`}></img>
       </div>
       <div className={styles.title}>{data.title}</div>
       <div className={styles.vote}>{data.vote_average}</div>

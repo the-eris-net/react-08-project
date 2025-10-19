@@ -30,7 +30,7 @@ function App() {
   };
   /* 3번 start */
   const [data, isLoading] = useFetch(
-    `${TMDB.BASE_URL}/${TMDB.POPULAR_PATH}?&language=ko-KR&page=4`,
+    `${TMDB.BASE_URL}/${TMDB.POPULAR_PATH}?&language=ko-KR&page=1`,
     headers
   );
   /* 3번 end */
