@@ -22,7 +22,7 @@ export default function MovieCard({ movie, isLoading }) {
   const navigate = useNavigate();
 
   const handleOnClick = (_) => {
-    navigate('/details');
+    navigate('/details', { state: { movieId: movie.id } });
   };
 
   return (
