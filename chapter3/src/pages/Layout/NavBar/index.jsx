@@ -1,11 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './NavBar.module.css';
 import Button from '@/components/Button';
 import { useDebounce } from '@/hooks';
+import { ThemeContext } from '@/contexts/ThemeContext';
 
 export default function NavBar() {
   const [text, debouncedText, setText] = useDebounce();
+  const { isDark, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const handleClickSearch = () => {
@@ -38,6 +40,9 @@ export default function NavBar() {
       </div>
 
       <div className={styles.buttons}>
+        <Button onClick={toggleTheme}>
+          {isDark ? '라이트 모드 전환' : '다크 모드 전환'}
+        </Button>
         <Button>로그인</Button>
         <Button>회원가입</Button>
       </div>
