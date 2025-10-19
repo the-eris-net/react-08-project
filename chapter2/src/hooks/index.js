@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 
-export function useFetch(url, headers) {
+export function useFetch(url, headers, timeout = 0) {
   const [data, setData] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     if (!url) return;
 
@@ -14,7 +15,11 @@ export function useFetch(url, headers) {
       })
       .then((data) => setData(data))
       .catch(() => setData(null))
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, timeout);
+      });
   }, [url]);
   return [data, isLoading];
 }

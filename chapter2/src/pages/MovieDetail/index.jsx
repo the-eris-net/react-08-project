@@ -4,6 +4,7 @@ import styles from '@/pages/MovieDetail/MovieDetail.module.css';
 import { useLocation } from 'react-router-dom';
 import TMDB from '@/config/tmdb';
 import { useFetch } from '@/hooks';
+import Indicator from '@/components/Indicator';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -20,11 +21,13 @@ export default function MovieDetail() {
   };
   const [data, isLoading] = useFetch(
     `${TMDB.BASE_URL}/${TMDB.DETAIL_PATH}/${movieId}?&language=ko-KR`,
-    headers
+    headers,
+    0
   );
-  console.log(data);
+
   if (isLoading || !data) {
-    return <div>Loading...</div>;
+    return <Indicator />;
+    // return <div>Loading...</div>;
   }
 
   return (
