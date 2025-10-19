@@ -72,3 +72,36 @@
         order: 2;
     }
 }
+
+@media (max-width: 400px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .searchBox {
+        order: 3;
+        display: flex;
+        /* 이 속성 때문에 가로 크기가 전부 피교해서 아래로 내려야함 */
+        width: 100%;
+    }
+
+    .buttons {
+        display: flex;
+        width: 100%;
+        order: 2;
+    }
+
+    .buttons > button {
+        flex: 1;
+    }
+}
