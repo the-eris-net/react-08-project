@@ -1,12 +1,18 @@
 .navbar {
   display: flex;
   align-items: center;
+  /* 이 속성 때문에 버튼이 항상 양쪽에 붙음*/
   justify-content: space-between;
   padding: 12px 40px;
   /* searchBox의 width:100% 효과를 먹이기 위해서는 wrap이 필요*/
   flex-wrap: wrap;
   background-color: #111;
   color: white;
+}
+
+body:global(.light) .navbar {
+  background-color: #f5f5f5;
+  color: black;
 }
 
 .logo {
@@ -17,12 +23,24 @@
   user-select: none;
 }
 
+body:global(.light) .logo {
+  color: black;
+}
+
 .oz {
   color: white;
 }
 
+body:global(.light) .oz {
+  color: #6c2cff;
+}
+
 .dot {
   color: #9b4dff;
+}
+
+body:global(.light) .dot {
+  color: #8b5fff;
 }
 
 .search {
@@ -38,6 +56,11 @@
   background-color: #2b2b2b;
   color: white;
   font-size: 14px;
+}
+
+body:global(.light) .search {
+  background-color: #e0e0e0;
+  color: black;
 }
 
 .buttons {

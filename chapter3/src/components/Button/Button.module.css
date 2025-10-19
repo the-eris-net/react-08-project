@@ -9,6 +9,18 @@
     transition: background 0.5s;
 }
 
+/* global로 안쓰고 직접
+.button.light를 하면 light도 번역되서 단순 className붙히는 방식이 안된다
+*/
+.button:global(.light) {
+    background-color: #9999ff;
+    color: black;
+}
+
 .button:hover {
     background-color: #8b5fff;
+}
+
+.button:global(.light):hover {
+    background-color: #b3b3ff;
 }

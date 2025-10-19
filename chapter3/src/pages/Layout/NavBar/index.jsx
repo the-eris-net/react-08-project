@@ -8,6 +8,7 @@ import { ThemeContext } from '@/contexts/ThemeContext';
 export default function NavBar() {
   const [text, debouncedText, setText] = useDebounce();
   const { isDark, toggleTheme } = useContext(ThemeContext);
+  const currentTheme = isDark ? 'dark' : 'light';
   const navigate = useNavigate();
 
   const handleClickSearch = () => {
@@ -29,6 +30,7 @@ export default function NavBar() {
         <span className={styles.dot}>.</span>
       </div>
 
+      {/* theme를 body에 붙힌 전역 css로 사용하는 방식 */}
       <div className={styles.searchBox}>
         <input
           className={styles.search}
@@ -39,12 +41,13 @@ export default function NavBar() {
         />
       </div>
 
+      {/* theme를 직접 컴포넌트에 내려주는 방식, 세세한 설정 가능 */}
       <div className={styles.buttons}>
-        <Button onClick={toggleTheme}>
+        <Button className={currentTheme} onClick={toggleTheme} >
           {isDark ? '라이트 모드 전환' : '다크 모드 전환'}
         </Button>
-        <Button>로그인</Button>
-        <Button>회원가입</Button>
+        <Button className={currentTheme}>로그인</Button>
+        <Button className={currentTheme}>회원가입</Button>
       </div>
     </nav>
   );
