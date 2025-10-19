@@ -1,107 +1,111 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 40px;
-    /* searchBox의 width:100% 효과를 먹이기 위해서는 wrap이 필요*/
-    flex-wrap: wrap; 
-    background-color: #111;
-    color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 40px;
+  /* searchBox의 width:100% 효과를 먹이기 위해서는 wrap이 필요*/
+  flex-wrap: wrap;
+  background-color: #111;
+  color: white;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-    /* 드래그 방지 */
-    user-select: none;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  /* 드래그 방지 */
+  user-select: none;
 }
 
 .oz {
-    color: white;
+  color: white;
 }
 
 .dot {
-    color: #9b4dff;
+  color: #9b4dff;
 }
 
 .search {
-    width: 300px;
-    padding: 10px 14px;
-    border-radius: 20px;
-    border: none;
-    /* 
+  width: 300px;
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: none;
+  /* 
     포커스 했을 때 outline
     border처럼 1px solid #999 이런식으로 설정 가능
   */
-    outline: none;
-    background-color: #2b2b2b;
-    color: white;
-    font-size: 14px;
+  outline: none;
+  background-color: #2b2b2b;
+  color: white;
+  font-size: 14px;
 }
 
 .buttons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
-/* order는 flex나 grid에서 먹힘 */
+/* 
+  아이패드 사이즈
+  order는 flex나 grid에서 먹힘 
+*/
 @media (min-width: 401px) and (max-width: 800px) {
-    .navbar {
-        /* flex-direction: column; */
-        align-items: flex-start;
-        gap: 10px;
-    }
+  .navbar {
+    /* flex-direction: column; */
+    align-items: flex-start;
+    gap: 10px;
+  }
 
-    .logo {
-        order: 1;
-    }
+  .logo {
+    order: 1;
+  }
 
-    .search {
-        width: 100%;
-    }
+  .search {
+    width: 100%;
+  }
 
-    .searchBox {
-        order: 3;
-        display: flex;
-        /* 이 속성 때문에 가로 크기가 전부 피교해서 아래로 내려야함 */
-        width: 100%;
-    }
+  .searchBox {
+    order: 3;
+    display: flex;
+    /* 이 속성 때문에 가로 크기가 전부 피교해서 아래로 내려야함 */
+    width: 100%;
+  }
 
-    .buttons {
-        order: 2;
-    }
+  .buttons {
+    order: 2;
+  }
 }
 
+/* 모바일 사이즈 */
 @media (max-width: 400px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 
-    .logo {
-        order: 1;
-    }
+  .logo {
+    order: 1;
+  }
 
-    .search {
-        width: 100%;
-    }
+  .search {
+    width: 100%;
+  }
 
-    .searchBox {
-        order: 3;
-        display: flex;
-        /* 이 속성 때문에 가로 크기가 전부 피교해서 아래로 내려야함 */
-        width: 100%;
-    }
+  .searchBox {
+    order: 3;
+    display: flex;
+    /* 이 속성 때문에 가로 크기가 전부 피교해서 아래로 내려야함 */
+    width: 100%;
+  }
 
-    .buttons {
-        display: flex;
-        width: 100%;
-        order: 2;
-    }
+  .buttons {
+    display: flex;
+    width: 100%;
+    order: 2;
+  }
 
-    .buttons > button {
-        flex: 1;
-    }
+  .buttons>button {
+    flex: 1;
+  }
 }
