@@ -5,7 +5,7 @@ import { useSupabaseAuth } from '@/supabase';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-  const { login } = useSupabaseAuth();
+  const { login, loginWithKakao } = useSupabaseAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -42,6 +42,9 @@ export default function Login() {
         />
         <Button className={styles.button} type="submit">
           로그인
+        </Button>
+        <Button className={styles.buttonKakao} onClick={() => loginWithKakao()}>
+          카카오 로그인
         </Button>
       </form>
     </div>
