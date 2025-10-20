@@ -5,6 +5,7 @@ import MovieDetail from '@/pages/MovieDetail';
 import App from '@/pages/App';
 import Layout from '@/pages/Layout';
 import { ThemeProvider } from './contexts/ThemeContext';
+import SiginUp from '@/pages/SignUp';
 
 createRoot(document.getElementById('root')).render(
   <ThemeProvider>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<Layout />}>
           <Route index element={<App />}></Route>
           <Route path="/details" element={<MovieDetail />}></Route>
+          <Route path="/signup" element={<SiginUp />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

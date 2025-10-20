@@ -46,8 +46,8 @@ export default function NavBar() {
         <Button className={currentTheme} onClick={toggleTheme} >
           {isDark ? '라이트 모드 전환' : '다크 모드 전환'}
         </Button>
-        <Button className={currentTheme}>로그인</Button>
-        <Button className={currentTheme}>회원가입</Button>
+        <Button className={currentTheme} onClick={() => navigate('/login')}>로그인</Button>
+        <Button className={currentTheme} onClick={() => navigate('/signup')}>회원가입</Button>
       </div>
     </nav>
   );
