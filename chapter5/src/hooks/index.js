@@ -39,7 +39,6 @@ export function useFetchContinue(url, headers, page, throttleDelay = 1000, timeo
     //   return;
     // }
     lastFetchTime.current = now;
-
     if (page === 1) setData({ results: [] });
     setIsLoading(true);
 

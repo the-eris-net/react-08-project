@@ -83,7 +83,7 @@ function App() {
 
   useEffect(() => {
     setPage(1);
-  }, [query]);
+  }, [keyword]);
 
   return (
     <div>
