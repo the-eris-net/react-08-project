@@ -6,7 +6,6 @@ export default function MyPageInfo() {
   const {
     userInfo: { user },
   } = useContext(AuthContext);
-  console.log(user);
 
   return (
     <div className={styles.myPageInfo}>
