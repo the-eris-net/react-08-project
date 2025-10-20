@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useRef } from 'react';
 
 /* chapter2 추가 */
 export function useFetch(url, headers, timeout = 0) {
@@ -26,29 +26,43 @@ export function useFetch(url, headers, timeout = 0) {
 }
 
 /* chapter5 추가 */
-export function useFetchContinue(url, headers, timeout = 0) {
+export function useFetchContinue(url, headers, page, throttleDelay = 1000, timeout = 0) {
   const [data, setData] = useState({ results: [] });
   const [isLoading, setIsLoading] = useState(false);
-  
+  const lastFetchTime = useRef(0);
+
   useEffect(() => {
     if (!url) return;
 
+    const now = Date.now();
+    if (now - lastFetchTime.current < throttleDelay) {
+      return;
+    }
+    lastFetchTime.current = now;
+
+    if (page === 1) setData({ results: [] });
     setIsLoading(true);
+
     fetch(url, { headers })
       .then((res) => {
         if (!res.ok) throw new Error('데이터가 없습니다.');
         return res.json();
       })
       .then((resData) => {
-        setData(prev => ({results: [...prev.results, ...resData.results]}));
+        setData((prev) => ({
+          results: [...prev.results, ...resData.results],
+        }));
       })
-      .catch(() => setData( prev=> ({results: [...prev.results]})))
+      .catch(() => {
+        setData((prev) => ({ results: [...prev.results] }));
+      })
       .finally(() => {
         setTimeout(() => {
           setIsLoading(false);
         }, timeout);
       });
   }, [url]);
+
   return [data, isLoading];
 }
 

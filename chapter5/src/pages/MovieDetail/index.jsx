@@ -1,10 +1,11 @@
-import { useState } from 'react';
 import movieDetailData from '@/mocks/movieDetailData';
-import styles from '@/pages/MovieDetail/MovieDetail.module.css';
+import styles from './MovieDetail.module.css';
 import { useLocation } from 'react-router-dom';
 import TMDB from '@/config/tmdb';
 import { useFetch } from '@/hooks';
 import Indicator from '@/components/Indicator';
+import { BookMarkContext } from '@/contexts/BookMarkContext';
+import { useContext } from 'react';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -14,6 +15,8 @@ function Genre({value}){
 
 /*chapter2에서 제일 마지막에 수정 */
 export default function MovieDetail() {
+  const { bookMarks, toggleBookMark } = useContext(BookMarkContext);
+
   const movieId = useLocation().state.movieId;
   const headers = {
     Authorization: `Bearer ${TMDB.API_KEY}`,
@@ -25,6 +28,8 @@ export default function MovieDetail() {
     0
   );
 
+  const isBookMarked = bookMarks[movieId] !== undefined;
+
   if (isLoading || !data) {
     return <Indicator />;
     // return <div>Loading...</div>;
@@ -34,6 +39,10 @@ export default function MovieDetail() {
     <div className={styles.movie}>
       <div className={styles.poster} >
         <img className={styles.img} src={`${BASE_URL}${data.poster_path}`}></img>
+        <div className={styles.star} style={{
+          backgroundColor: isBookMarked ? 'red' : 'white'
+        }} onClick={() => toggleBookMark(data)}>
+        </div>
       </div>
       <div className={styles.title}>{data.title}</div>
       <div className={styles.vote}>{data.vote_average}</div>

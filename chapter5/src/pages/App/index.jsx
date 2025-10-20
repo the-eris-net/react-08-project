@@ -36,7 +36,7 @@ function App() {
   const { getUserInfo } = useSupabaseAuth();
   const { registUserInfo } = useContext(AuthContext);
   /* 맨 처음 로딩시 keyword 안붙을 수도 있기 대문에 추가함 */
-  const query = keyword.get('keyword')?.trim();
+  const query = keyword.get('keyword')?.trim() ?? '';
   const loader = useRef(null);
   const [page, setPage] = useState(1);
   const scrollPos = useRef(0);
@@ -80,6 +80,10 @@ function App() {
   useEffect(() => {
     window.scrollTo({ top: scrollPos.current });
   }, [data]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [query]);
 
   return (
     <div>
