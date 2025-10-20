@@ -11,7 +11,7 @@ export default function UserButton({ userInfo: { user } }) {
       >
       </div>
       <ul className={styles.menu}>
-        <li className={styles.menuItem}><Link to="/favorites">관심목록</Link></li>
+        <li className={styles.menuItem}><Link to="/mypage">마이페이지</Link></li>
         <li className={styles.menuItem}><Link to="/logout">로그아웃</Link></li>
       </ul>
     </div>
