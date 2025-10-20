@@ -11,3 +11,4 @@
     * https://developer.themoviedb.org/reference/search-movie
 * chapter4
     * npm i styled-components
+    * npm i @supabase/supabase-js
