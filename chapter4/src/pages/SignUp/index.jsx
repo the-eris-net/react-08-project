@@ -4,7 +4,7 @@ import FormInput from '@/components/FormInput';
 
 export default function SignUp() {
   const handleSubmit = (event) => {
-    // Handle form submission
+    event.preventDefault();
   };
 
   return (
