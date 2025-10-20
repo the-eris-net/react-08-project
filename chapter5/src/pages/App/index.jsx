@@ -23,11 +23,9 @@ function getSearchUrl(query) {
   if (query === '') {
     return `${TMDB.BASE_URL}/${TMDB.POPULAR_PATH}?&language=ko-KR&page=1`;
   }
-  return query
-    ? `${TMDB.BASE_URL}/${TMDB.SEARCH_PATH}` +
+  return `${TMDB.BASE_URL}/${TMDB.SEARCH_PATH}` +
         `?query=${encodeURIComponent(query)}` +
-        `&language=ko-KR&page=1`
-    : `${TMDB.BASE_URL}/${TMDB.POPULAR_PATH}?&language=ko-KR&page=1`;
+        `&language=ko-KR&page=1`;
 }
 
 function App() {
