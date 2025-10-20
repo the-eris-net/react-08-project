@@ -1,0 +1,52 @@
+.userButton {
+    position: relative;
+}
+
+.userButtonImage {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 40px;
+  /* 위 아래가 동일 */
+  clip-path: circle();
+  /* clip-path: circle(50% at 50% 50%); */
+  /* 가로 세로 동일 비율 유지 */
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+
+}
+
+.menu {
+  list-style: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 120px;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin: 0;
+  display: none;
+}
+
+.userButton:hover .menu{
+  display: block;
+}
+
+.menuItem {
+  text-align: center;
+  width: auto;
+  padding: 8px;
+  color: #333;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.menuItem:hover {
+  background-color: #f0f0f0;
+}
+
+.menuItem a {
+  color: inherit;
+  text-decoration: none;
+}

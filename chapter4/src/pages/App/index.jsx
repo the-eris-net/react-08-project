@@ -8,6 +8,8 @@ import TMDB from '@/config/tmdb';
 import { useFetch } from '@/hooks';
 import { useSearchParams } from 'react-router-dom';
 import { useSupabaseAuth } from '@/supabase';
+import { useContext } from 'react';
+import { AuthContext } from '@/contexts/AuthContext';
 
 function Movies({ movies, isSwiper, isLoading }) {
   return isSwiper ? (
@@ -32,13 +34,14 @@ function App() {
   const [isSwiper, setIsSwiper] = useState(false);
   const [keyword] = useSearchParams();
   const { getUserInfo } = useSupabaseAuth();
+  const { registUserInfo } = useContext(AuthContext);
   /* 맨 처음 로딩시 keyword 안붙을 수도 있기 대문에 추가함 */
   const query = keyword.get('keyword')?.trim();
 
   useEffect(() => {
     getUserInfo()
-      .then((data) => {
-        console.log('User Info:', data);
+      .then((userInfo) => {
+        registUserInfo(userInfo);
       })
   }, []);
 
