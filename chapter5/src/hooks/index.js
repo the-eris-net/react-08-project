@@ -25,6 +25,34 @@ export function useFetch(url, headers, timeout = 0) {
   return [data, isLoading];
 }
 
+/* chapter5 추가 */
+export function useFetchContinue(url, headers, timeout = 0) {
+  const [data, setData] = useState({ results: [] });
+  const [isLoading, setIsLoading] = useState(false);
+  
+  useEffect(() => {
+    if (!url) return;
+
+    setIsLoading(true);
+    fetch(url, { headers })
+      .then((res) => {
+        if (!res.ok) throw new Error('데이터가 없습니다.');
+        return res.json();
+      })
+      .then((resData) => {
+        setData(prev => ({results: [...prev.results, ...resData.results]}));
+      })
+      .catch(() => setData( prev=> ({results: [...prev.results]})))
+      .finally(() => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, timeout);
+      });
+  }, [url]);
+  return [data, isLoading];
+}
+
+
 /* chapter3추가 */
 export function useDebounce(delay = 300) {
   const [value, setValue] = useState('');

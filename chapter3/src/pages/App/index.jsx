@@ -16,13 +16,13 @@ function Movies({ movies, isSwiper, isLoading }) {
   );
 }
 /* 요청시 쿼리파메터에 include_adult=false로 성인 영화 제거 가능 */
-function getSearchUrl(query) {
+function getSearchUrl(query, page = 1) {
   if (query === '') {
-    return `${TMDB.BASE_URL}/${TMDB.POPULAR_PATH}?&language=ko-KR&page=1`;
+    return `${TMDB.BASE_URL}/${TMDB.POPULAR_PATH}?&language=ko-KR&page=${page}`;
   }
   return `${TMDB.BASE_URL}/${TMDB.SEARCH_PATH}` +
         `?query=${encodeURIComponent(query)}` +
-        `&language=ko-KR&page=1`;
+        `&language=ko-KR&page=${page}`;
 }
 
 function App() {
