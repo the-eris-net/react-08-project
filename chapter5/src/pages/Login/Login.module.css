@@ -1,0 +1,31 @@
+.login {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.button {
+  width: 100%;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.buttonKakao {
+  width: 100%;
+  margin-top: 10px;
+  background-color: #F7E600;
+  color: #3C1E1E;
+  font-weight: bold;
+}
+
+.buttonKakao:hover {
+  background-color: #E6D500;
+}
