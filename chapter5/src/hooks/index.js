@@ -35,9 +35,9 @@ export function useFetchContinue(url, headers, page, throttleDelay = 1000, timeo
     if (!url) return;
 
     const now = Date.now();
-    if (now - lastFetchTime.current < throttleDelay) {
-      return;
-    }
+    // if (now - lastFetchTime.current < throttleDelay && page !== 1) {
+    //   return;
+    // }
     lastFetchTime.current = now;
 
     if (page === 1) setData({ results: [] });
