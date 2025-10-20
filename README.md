@@ -12,3 +12,5 @@
 * chapter4
     * npm i styled-components
     * npm i @supabase/supabase-js
+    * Authentication -> Sign In / Providers / Allow anonymous sign-ins
+        * 프로젝트에 해당 옵션이 켜져야 회원가입되고 api 호출됨

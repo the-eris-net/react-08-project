@@ -1,10 +1,22 @@
 import Button from '@/components/Button';
 import styles from './Login.module.css';
 import FormInput from '@/components/FormInput';
+import { useSupabaseAuth } from '@/supabase';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const { login } = useSupabaseAuth();
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    const formData = new FormData(event.target);
+    const email = formData.get('email');
+    const password = formData.get('password');
+    login({ email, password })
+      .then(() => {
+        navigate('/');
+      })
   };
 
   return (
@@ -22,9 +34,9 @@ export default function Login() {
           label="비밀번호"
           type="password"
           name="password"
-          placeholder="4자 이상 8자 미만"
-          errorMessage="비밀번호 형식을 맞춰주세요(4~8자)"
-          minLength="4"
+          placeholder="6자 이상 8자 미만"
+          errorMessage="비밀번호 형식을 맞춰주세요(6~8자)"
+          minLength="6"
           maxLength="8"
           required
         />

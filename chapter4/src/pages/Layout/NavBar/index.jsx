@@ -4,6 +4,7 @@ import styles from './NavBar.module.css';
 import Button from '@/components/Button';
 import { useDebounce } from '@/hooks';
 import { ThemeContext } from '@/contexts/ThemeContext';
+import {useSupabaseAuth} from '@/supabase';
 
 export default function NavBar() {
   const [text, debouncedText, setText] = useDebounce();

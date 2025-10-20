@@ -7,18 +7,21 @@ import Layout from '@/pages/Layout';
 import { ThemeProvider } from './contexts/ThemeContext';
 import SignUp from '@/pages/SignUp';
 import Login from '@/pages/Login';
+import { SupabaseProvider } from './supabase';
 
 createRoot(document.getElementById('root')).render(
   <ThemeProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<App />}></Route>
-          <Route path="/details" element={<MovieDetail />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<SignUp />}></Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <SupabaseProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<App />}></Route>
+            <Route path="/details" element={<MovieDetail />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/signup" element={<SignUp />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </SupabaseProvider>
   </ThemeProvider>
 );

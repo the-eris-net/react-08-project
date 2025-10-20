@@ -7,6 +7,7 @@ import SwiperMovies from './SwiperMovies';
 import TMDB from '@/config/tmdb';
 import { useFetch } from '@/hooks';
 import { useSearchParams } from 'react-router-dom';
+import { useSupabaseAuth } from '@/supabase';
 
 function Movies({ movies, isSwiper, isLoading }) {
   return isSwiper ? (
@@ -30,8 +31,16 @@ function getSearchUrl(query) {
 function App() {
   const [isSwiper, setIsSwiper] = useState(false);
   const [keyword] = useSearchParams();
+  const { getUserInfo } = useSupabaseAuth();
   /* 맨 처음 로딩시 keyword 안붙을 수도 있기 대문에 추가함 */
   const query = keyword.get('keyword')?.trim();
+
+  useEffect(() => {
+    getUserInfo()
+      .then((data) => {
+        console.log('User Info:', data);
+      })
+  }, []);
 
   const headers = {
     Authorization: `Bearer ${TMDB.API_KEY}`,
@@ -45,6 +54,7 @@ function App() {
   const movies = data
     ? data.results.filter((movie) => movie.adult === false)
     : [];
+
 
   return (
     <div>
