@@ -1,12 +1,6 @@
-import { useContext } from 'react';
 import styles from './MyPageInfo.module.css';
-import { AuthContext } from '@/contexts/AuthContext';
 
-export default function MyPageInfo() {
-  const {
-    userInfo: { user },
-  } = useContext(AuthContext);
-
+export default function MyPageInfo({ userInfo: { user } }) {
   return (
     <div className={styles.myPageInfo}>
       <div className={styles.container}>
